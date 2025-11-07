@@ -1,8 +1,5 @@
 import os
-import numpy as np
-import pandas as pd
 import scanpy as sc
-import anndata as ad
 import scvi
 
 BASE_PATH = "/home/projects/nyosef/oier/Harreman_files/Slide_seq_lung"

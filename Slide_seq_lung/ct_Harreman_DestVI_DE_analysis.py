@@ -8,12 +8,9 @@ import scanpy as sc
 import scvi
 from scvi.model import CondSCVI, DestVI
 import torch
-import destvi_utils
-from scipy.stats import ks_2samp, zscore
+from scipy.stats import ks_2samp
 from statsmodels.stats.multitest import multipletests
-import seaborn as sns
-import gseapy
-from plotnine import *
+
 
 BASE_PATH = "/home/projects/nyosef/oier/Harreman_files/Slide_seq_lung"
 ADATA_PATH = os.path.join(BASE_PATH, 'h5ads')
@@ -25,6 +22,7 @@ SLIDE_SEQ_LUNG_SC_MODEL_PATH = os.path.join(MODELS_PATH, 'Slide_seq_lung_DestVI_
 SLIDE_SEQ_LUNG_ST_MODEL_PATH = os.path.join(MODELS_PATH, 'Slide_seq_lung_DestVI_v2_st')
 
 msigdb_data_path = "/home/projects/nyosef/oier/MSigDB_data"
+
 
 def de_genes(
     st_model,

@@ -3,8 +3,6 @@ import os
 import numpy as np
 import pandas as pd
 import scanpy as sc
-import anndata as ad
-from plotnine import *
 import warnings
 warnings.filterwarnings("ignore")
 
