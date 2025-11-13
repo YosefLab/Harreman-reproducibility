@@ -1,6 +1,6 @@
 # Harreman Reproducibility
 
-This repository contains the code to reproduce the figures and analyses performed in the [Harreman](https://github.com/YosefLab/Harreman) manuscript:
+This repository contains the scripts and notebooks to reproduce the analyses performed in the [Harreman](https://github.com/YosefLab/Harreman) manuscript:
 
 Metabolic zonation and characterization of tissue slices with spatial transcriptomics
 https://doi.org/10.1101/2025.11.11.687271
