@@ -8,13 +8,12 @@ import scanpy as sc
 import scvi
 from scvi.model import CondSCVI, DestVI
 
-
 BASE_PATH = "/home/projects/nyosef/oier/Harreman_files/Slide_seq_lung"
 ADATA_PATH = os.path.join(BASE_PATH, 'h5ads')
 MODELS_PATH = os.path.join(BASE_PATH, 'models')
-SLIDE_SEQ_LUNG_DESTVI_ADATA_PATH = os.path.join(ADATA_PATH, 'Slide_seq_lung_DestVI_v2_adata.h5ad')
-SLIDE_SEQ_LUNG_SC_MODEL_PATH = os.path.join(MODELS_PATH, 'Slide_seq_lung_DestVI_v2_sc')
-SLIDE_SEQ_LUNG_ST_MODEL_PATH = os.path.join(MODELS_PATH, 'Slide_seq_lung_DestVI_v2_st')
+SLIDE_SEQ_LUNG_DESTVI_ADATA_PATH = os.path.join(ADATA_PATH, 'Slide_seq_lung_DestVI_v2_revision_adata.h5ad')
+SLIDE_SEQ_LUNG_SC_MODEL_PATH = os.path.join(MODELS_PATH, 'Slide_seq_lung_DestVI_v2_sc_revision')
+SLIDE_SEQ_LUNG_ST_MODEL_PATH = os.path.join(MODELS_PATH, 'Slide_seq_lung_DestVI_v2_st_revision')
 
 BATCH_KEY = "donor_id"
 G = 8000
@@ -24,8 +23,8 @@ CELL_TYPE_HIGHRES_ID = "FinalCellType"
 
 
 # If we want to use the DestVI output for cell-cell communication
-TRANSPORTER_DB_PATH = '/home/projects/nyosef/oier/Harreman/data/HarremanDB/HarremanDB_human_extracellular.csv'
-CELLCHATDB_PATH = '/home/projects/nyosef/oier/Harreman/data/CellChatDB'
+TRANSPORTER_DB_PATH = '/home/projects/nyosef/oier/Harreman/src/harreman/data/HarremanDB/HarremanDB_human_extracellular.csv'
+CELLCHATDB_PATH = '/home/projects/nyosef/oier/Harreman/src/harreman/data/CellChatDB'
 
 database_info = {
     'mouse': {
@@ -78,7 +77,7 @@ DB_genes = list(set(ligands) | set(receptors) | set(transporters))
 
 # Load the single-cell data
 
-sc_adata = sc.read_h5ad(os.path.join(ADATA_PATH, 'Slide_seq_lung_sc_ref_adata.h5ad'))
+sc_adata = sc.read_h5ad(os.path.join(ADATA_PATH, 'Slide_seq_lung_sc_ref_revision_adata.h5ad'))
 
 sc.pp.filter_genes(sc_adata, min_counts=MIN_COUNTS)
 
@@ -99,7 +98,7 @@ G = len(intersect)
 
 # Fit the scLVM
 
-train_sc = True
+train_sc = False
 if train_sc:
     CondSCVI.setup_anndata(sc_adata, layer="counts", labels_key=CELL_TYPE_ID, fine_labels_key=CELL_TYPE_HIGHRES_ID, batch_key=BATCH_KEY)
     sc_model = CondSCVI(sc_adata, weight_obs=False, prior='mog', num_classes_mog=10)
