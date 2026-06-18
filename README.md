@@ -17,7 +17,7 @@ The repository is structured as follows:
 
 * **Visium_RCC**: This folder contains the scripts and notebooks needed to process the 10x Visium human ccRCC dataset as well as to reproduce Figure 6.
 
-* **Method_benchmarking**: This folder contains the notebooks needed to reproduce Figure S12, which benchmarks Harreman against scCellFie across five complementary axes.
+* **Method_benchmarking**: This folder contains the notebooks needed to reproduce Figure S12, which benchmarks Harreman against scCellFie across three complementary axes.
 
 * **Parameter_benchmarking**: This folder contains the notebooks needed to reproduce Figures S13 and S15, which assess the robustness of Harreman to parameter choices and metabolite binarization strategies, respectively.
 
